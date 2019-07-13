@@ -21,4 +21,4 @@ def text2voice(word):
     engine.say(word)
     engine.runAndWait()
 
-text2voice("hello everyone in WIT hackathon")
+#text2voice("hello everyone in WIT hackathon")
