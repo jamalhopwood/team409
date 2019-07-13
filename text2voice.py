@@ -1,24 +1,29 @@
 import pyttsx3
 
-def text2voice(word):
-    engine = pyttsx3.init()
+class TextToVoice:
+    def __init__(self, word):
+        self.word = word
 
-    """Rate"""
-    rate = engine.getProperty('rate')
-    print("rate: ",rate)
-    engine.setProperty('rate',rate+1)
+    def text2voice(self):
+        engine = pyttsx3.init()
 
-    """Volumn"""
-    volume = engine.getProperty('volume')
-    print(volume)
-    engine.setProperty('volume',volume+1.25)
+        """Rate"""
+        rate = engine.getProperty('rate')
+        #print("rate: ",rate)
+        engine.setProperty('rate',rate+1)
 
-    """voice"""
-    voices = engine.getProperty('voices')
-    engine.setProperty('voices',voices[0].id)
-    #engine.setProperty('voices',voices[1].id)
+        """Volumn"""
+        volume = engine.getProperty('volume')
+        #print(volume)
+        engine.setProperty('volume',volume+1.25)
 
-    engine.say(word)
-    engine.runAndWait()
+        """voice"""
+        voices = engine.getProperty('voices')
+        engine.setProperty('voices',voices[0].id)
+        #engine.setProperty('voices',voices[1].id)
 
-#text2voice("hello everyone in WIT hackathon")
+        engine.say(self.word)
+        engine.runAndWait()
+
+# t = TextToVoice()
+# t.text2voice("hello everyone in WIT hackathon")
